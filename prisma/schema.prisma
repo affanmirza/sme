@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  STAFF
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(STAFF)
+  createdAt    DateTime @default(now())
+  leads        Lead[]
+}
+
+model Lead {
+  id                   String   @id @default(cuid())
+  createdAt            DateTime @default(now())
+  createdById          String
+  status               String   // 'RED' | 'YELLOW' | 'GREEN'
+  sektor               String
+  sektorCategory       String
+  omzetBracket         String
+  yearsOperating       String
+  relationMandiri      String
+  productNeed          String
+  tenor                String?
+  legal_akta           Boolean
+  aktaLastChangeYear   Int?
+  legal_nib            Boolean
+  legal_npwp           Boolean
+  keyPersonClear       Boolean
+  creditSelfDeclareOk  String
+  collateralType       String
+  ownership            String?
+  locationInArea       String?
+  valueChainEvidence   Boolean
+  purposeNote          String?
+  reasons              String   // JSON string array
+  checklist            String   // JSON string array
+  createdBy            User     @relation(fields: [createdById], references: [id])
+}

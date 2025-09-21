@@ -6,7 +6,7 @@ import { prisma } from '@/lib/prisma';
 export async function POST(request: NextRequest) {
   try {
     // Use a default user ID for now
-    const defaultUserId = 'cmfq9ni4e0000qu6l7r7a58u6'; // This is the admin user ID from the seed
+    const defaultUserId = 'cmfucxiyi0004zagyqa32ddkp'; // This is the admin user ID from production
 
     const body = await request.json();
     const validatedData = leadFormSchema.parse(body);

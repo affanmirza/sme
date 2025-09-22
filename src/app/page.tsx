@@ -14,7 +14,7 @@ export default function Home() {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">PrePAS</h1>
           <p className="text-lg text-gray-600">
-            SME Quick Screen Application
+            PrePAS - SME Quick Screen Application
           </p>
         </div>
 

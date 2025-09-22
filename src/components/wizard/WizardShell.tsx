@@ -19,7 +19,7 @@ export function WizardShell({ currentStep, totalSteps, children }: WizardShellPr
         {/* Progress Header */}
         <Card className="mb-6 p-6">
           <div className="mb-4">
-            <h1 className="text-2xl font-bold text-gray-900">SME Quick Screen</h1>
+            <h1 className="text-2xl font-bold text-gray-900">PrePAS - SME Quick Screen</h1>
             <p className="text-gray-600">Langkah {currentStep} dari {totalSteps}</p>
           </div>
           <Progress value={progress} className="h-2" />

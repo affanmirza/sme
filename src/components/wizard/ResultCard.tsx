@@ -3,7 +3,7 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, AlertTriangle, XCircle, Copy, MessageCircle } from 'lucide-react';
+import { CheckCircle, AlertTriangle, XCircle, Copy, MessageCircle, List } from 'lucide-react';
 import { getBadgeLabel, getBadgeClass } from '@/lib/decision-engine';
 
 interface ResultCardProps {
@@ -56,6 +56,10 @@ export function ResultCard({
       const message = generateWhatsAppMessage();
       window.open(`https://wa.me/?text=${message}`, '_blank');
     }
+  };
+
+  const goToLeads = () => {
+    window.location.href = '/leads';
   };
 
   return (
@@ -126,15 +130,26 @@ export function ResultCard({
               </Button>
               <Button 
                 onClick={openWhatsApp} 
-                variant="outline" 
                 size="sm"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white border-0"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp RM
               </Button>
             </div>
           )}
+
+          <div className="flex gap-3">
+            <Button 
+              onClick={goToLeads}
+              variant="secondary"
+              size="sm"
+              className="flex items-center gap-2 flex-1"
+            >
+              <List className="h-4 w-4" />
+              Lihat Daftar Lead
+            </Button>
+          </div>
         </div>
       </Card>
     </div>
